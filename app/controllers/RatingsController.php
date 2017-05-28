@@ -45,7 +45,7 @@ class RatingsController extends \BaseController {
 			if ($rating->isValid()) {
 				$rating->save();
 
-				$logger = new Katzgrau\KLogger\Logger('.'.'/logs');
+				$logger = new Katzgrau\KLogger\Logger('./logs');
 				$logger->info('Nueva valoración: ' . $rating->rating);
 
 				return Redirect::action('RatingsController@index');
@@ -117,7 +117,7 @@ class RatingsController extends \BaseController {
 				}
 			}
 
-			$logger = new Katzgrau\KLogger\Logger('.'.'/logs');
+			$logger = new Katzgrau\KLogger\Logger('./logs');
 			$logger->info('Valoración actualizada: ' . $rating->rating);
 
 			return Redirect::action('RatingsController@index');

@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<h1 class="text-center">Listado de películas y valoraciones</h1>
+
+	@if (!count($films))
+		<h4 class="text-center">La lista de películas está vacía</h4>
+	@endif
+
 	@foreach($films as $film)
 		<article class="row">
 			<div class="col-md-4 col-md-offset-4 col-xs-12">
