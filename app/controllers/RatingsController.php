@@ -111,17 +111,21 @@ class RatingsController extends \BaseController {
 
 			if($rating->isValid()) {
 				try {
-					$rating->save();	
+					$rating->save();
+
+					$logger = new Katzgrau\KLogger\Logger('./logs');
+					$logger->info('Valoración actualizada: ' . $rating->rating);
+
+					return Redirect::action('RatingsController@index');	
 				} catch(Exception $e) {
 					throw $e;
 				}
 			}
 
-			$logger = new Katzgrau\KLogger\Logger('./logs');
-			$logger->info('Valoración actualizada: ' . $rating->rating);
-
-			return Redirect::action('RatingsController@index');
+			return Redirect::back()->withErrors($rating->getErrors());
 		}
+
+		return Redirect::action('RatingsController@index');	
 	}
 
 
