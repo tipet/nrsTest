@@ -4,14 +4,6 @@ class SessionController extends BaseController {
 
 	public function create() 
 	{
-		// $user = new User();
-		// $user->name = 'pepe';
-		// $user->surname = 'paco';
-		// $user->username = 'pepe1';
-		// $user->password = Hash::make('paco');
-
-		// $user->save();
-
 		return View::make('sessions.create');
 	}
 
